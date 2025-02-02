@@ -2,9 +2,23 @@ import { useState } from "react";
 import "./App.css";
 import Form from "./Form";
 
+interface FirmInfo {
+    firm_name: string;
+    address1: string;
+    address2?: string; // Optional field
+    city: string;
+    state: string;
+    zip: string;
+    employee_count: string;
+    advisory_employees: string;
+    aum: string;
+    private_funds_count: string;
+    hedge_fund_count: string;
+    percent_derivatives: string;
+}
+
 function App() {
-    // when I get on next, I need to figure out how to pass the form data to the endpoint
-    const [firmInfo, setFirmInfo] = useState(null);
+    const [firmInfo, setFirmInfo] = useState<FirmInfo | null>(null);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     const handleFormSubmit = (crdNumber: string) => {

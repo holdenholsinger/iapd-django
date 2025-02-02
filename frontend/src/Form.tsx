@@ -1,9 +1,12 @@
 import { useState } from "react";
 
-function Form({ onSubmit }) {
+interface FormProps {
+    onSubmit: (crdNumber: string) => void;
+}
+function Form({ onSubmit }: FormProps) {
     const [crdNumber, setCrdNumber] = useState("");
 
-    const handleSubmit = (e: Event) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (crdNumber) {
             onSubmit(crdNumber);
