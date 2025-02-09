@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,14 +19,30 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-#7k7p)3^qcknsoesd#=a+7cw$k*z-%hbrm+lkpaao-!za$h%)k'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+SECURE_SSL_REDIRECT = True  # Redirect all HTTP to HTTPS
+SECURE_COOKIE_HTTPONLY = True  # Prevent JavaScript from accessing cookies
+SECURE_CONTENT_TYPE_NOSNIFF = True  # Prevent MIME sniffing
+
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1', 
+    'adv-info-frontend-7u7qv98zy-holdenholsingers-projects.vercel.app', 
+    'adv-info-frontend.vercel.app'
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://adv-info-frontend.vercel.app",
+]
 
 # Application definition
 
@@ -53,8 +69,10 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # React development server
+    "https://adv-info-frontend.vercel.app",  # Your production frontend
 ]
+
+SESSION_COOKIE_SECURE = True 
 
 ROOT_URLCONF = 'backend.urls'
 
