@@ -36,12 +36,12 @@ X_FRAME_OPTIONS = 'DENY'
 ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1', 
-    'adv-info-frontend-7u7qv98zy-holdenholsingers-projects.vercel.app', 
-    'adv-info-frontend.vercel.app'
+    'adv-info-finder-sghfwezom-holdenholsingers-projects.vercel.app',  # Your frontend Vercel domain
+    'adv-info-finder.vercel.app',  # If you decide to set this as the permanent domain
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://adv-info-frontend.vercel.app",
+    "https://adv-info-finder.vercel.app",  # Your frontend Vercel domain
 ]
 
 # Application definition
@@ -69,10 +69,11 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://adv-info-frontend.vercel.app",  # Your production frontend
+    "https://adv-info-finder.vercel.app",  # Your frontend Vercel domain
 ]
 
 SESSION_COOKIE_SECURE = True 
+CSRF_COOKIE_SECURE = True
 
 ROOT_URLCONF = 'backend.urls'
 
