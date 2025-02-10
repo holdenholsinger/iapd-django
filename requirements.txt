@@ -16,6 +16,7 @@ idna==3.10
 multidict==6.1.0
 packaging==24.2
 propcache==0.2.1
+python-dotenv==1.0.1
 requests==2.32.3
 soupsieve==2.6
 sqlparse==0.5.3
