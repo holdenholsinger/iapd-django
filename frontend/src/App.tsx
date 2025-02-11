@@ -22,7 +22,7 @@ function App() {
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
     const handleFormSubmit = (crdNumber: string) => {
-        fetch(`http://localhost:8000/api/iapd-info/${crdNumber}`)
+        fetch(`https://iapd-django.onrender.com/api/iapd-info/${crdNumber}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Unable to fetch data");
