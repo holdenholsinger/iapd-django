@@ -37,11 +37,13 @@ ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1', 
     'adv-info-finder-sghfwezom-holdenholsingers-projects.vercel.app',  # Your frontend Vercel domain
-    'adv-info-finder.vercel.app',  # If you decide to set this as the permanent domain
+    'adv-info-finder.vercel.app', # If you decide to set this as the permanent domain
+    "https://iapd-django.onrender.com/",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://adv-info-finder.vercel.app",  # Your frontend Vercel domain
+    "https://adv-info-finder.vercel.app",  # Vercel frontend
+    "https://iapd-django.onrender.com",  # Render backend
 ]
 
 # Application definition
